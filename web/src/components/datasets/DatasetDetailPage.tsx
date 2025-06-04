@@ -178,7 +178,7 @@ const DatasetDetailPage: FunctionComponent<IProps> = (props) => {
             </Box>
           </Box>
           <Box display={'flex'} alignItems={'center'}>
-            <Box mr={1}>
+            {/* <Box mr={1}>
               <Button
                 variant='outlined'
                 size={'small'}
@@ -205,7 +205,7 @@ const DatasetDetailPage: FunctionComponent<IProps> = (props) => {
                   props.dialogToggle('')
                 }}
               />
-            </Box>
+            </Box> */}
             <IconButton onClick={() => setSearchParams({})}>
               <CloseIcon fontSize={'small'} />
             </IconButton>

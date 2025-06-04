@@ -179,7 +179,7 @@ const JobDetailPage: FunctionComponent<IProps> = (props) => {
             )}
           </Box>
           <Box display={'flex'} alignItems={'center'}>
-            <Box mr={1}>
+            {/* <Box mr={1}>
               <Button
                 variant='outlined'
                 size={'small'}
@@ -206,7 +206,7 @@ const JobDetailPage: FunctionComponent<IProps> = (props) => {
                   props.dialogToggle('')
                 }}
               />
-            </Box>
+            </Box> */}
             <Box mr={1}>
               <Button
                 size={'small'}
