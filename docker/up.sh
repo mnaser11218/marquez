@@ -10,7 +10,7 @@ set -e
 # Version of Marquez
 readonly VERSION=0.51.1
 # Build version of Marquez
-readonly BUILD_VERSION=0.51.1
+readonly BUILD_VERSION=0.51.1-ksm
 
 title() {
   echo -e "\033[1m${1}\033[0m"
