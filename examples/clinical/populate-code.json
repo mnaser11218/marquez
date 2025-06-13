@@ -1,0 +1,96 @@
+{
+  "eventType": "COMPLETE",
+  "eventTime": "2025-06-12T14:06:59.163Z",
+  "run": {
+    "runId": "8ff90b76-681b-4946-ac61-c3617cbc723a",
+    "facets": {
+      "parent": {
+        "_producer": "https://github.com/OpenLineage/OpenLineage/blob/v1-0-0/client",
+        "_schemaURL": "https://openlineage.io/spec/facets/1-1-0/ParentRunFacet.json",
+        "run": {
+          "runId": "3f5e83fa-3480-44ff-99c5-ff943904e5e9"
+        },
+        "job": {
+          "namespace": "okbio.migration",
+          "name": "tg0014"
+        }
+      }
+    }
+  },
+  "job": {
+    "namespace": "okbio.migration",
+    "name": "populate-code",
+    "facets": {
+      "sourceCodeLocation": {
+        "_producer": "https://github.com/OpenLineage/OpenLineage/blob/v1-0-0/client",
+        "_schemaURL": "https://github.com/OpenLineage/OpenLineage/blob/main/spec/facets/SourceCodeLocationJobFacet.json",
+        "type": "git",
+        "repoUrl": "https://github.com/okbio/sceptre",
+        "tag": "1.0.3",
+        "path": "src/scripts/populate-code.py",
+        "url": "https://github.com/okbio/sceptre/blob/1.0.3/src/scripts/populate-code.py"
+      },
+      "runtimeParameters": {
+        "_producer": "https://github.com/OpenLineage/OpenLineage/blob/v1-0-0/client",
+        "_schemaURL": "https://github.com/OpenLineage/OpenLineage/blob/main/spec/facets/RuntimeParameters.json",
+        "runtimeParameters": [
+          {
+            "name": "rootDirectory",
+            "value": "code"
+          }
+        ]
+      }
+    }
+  },
+  "inputs": [
+    {
+      "namespace": "okbio.migration",
+      "name": "blobstore.tg0014.study"
+    },
+    {
+      "namespace": "okbio.migration",
+      "name": "github.tg0014.study"
+    }
+  ],
+  "outputs": [
+    {
+      "namespace": "okbio.migration",
+      "name": "branch.github.tg0014.study",
+      "outputFacets": {},
+      "facets": {
+        "githubBranch": {
+          "_producer": "https://github.com/OpenLineage/OpenLineage/blob/v1-0-0/client",
+          "_schemaURL": "https://github.com/ksmpartners/flyway/blob/v1-0-0/spec/FlywayOpenLineage.yml#GithubBranchFacet",
+          "repoUrl": "https://github.com/okbio/study-tg0014",
+          "branch": "main"
+        }
+      }
+    },
+    {
+      "namespace": "okbio.migration",
+      "name": "stdout.populate-code.job.tg0014.study",
+      "outputFacets": {},
+      "facets": {
+        "evidence": {
+          "_producer": "https://github.com/OpenLineage/OpenLineage/blob/v1-0-0/client",
+          "_schemaURL": "https://github.com/ksmpartners/flyway/blob/v1-0-0/spec/FlywayOpenLineage.yml#EvidenceFacet",
+          "url": "https://flyway.okbio/evidence/study.tg0014.populate-code.stdout"
+        }
+      }
+    },{
+      "namespace": "okbio.migration",
+      "name": "checksums.populate-code.job.tg0014.study",
+      "outputFacets": {},
+      "facets": {
+        "checksums": {
+          "_producer": "https://github.com/OpenLineage/OpenLineage/blob/v1-0-0/client",
+          "_schemaURL": "https://github.com/ksmpartners/flyway/blob/v1-0-0/spec/FlywayOpenLineage.yml#ChecksumsFacet",
+          "url": "https://flyway.okbio/evidence/study.tg0014.populate-code.checksums",
+          "result": "MATCH"
+        }
+      }
+    }
+  ],
+  "producer": "https://github.com/OpenLineage/OpenLineage/blob/v1-0-0/client",
+  "schemaURL": "https://openlineage.io/spec/1-0-1/OpenLineage.json#/definitions/RunEvent"
+}

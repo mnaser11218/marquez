@@ -1,0 +1,26 @@
+{
+  "eventType": "COMPLETE",
+  "eventTime": "2025-06-12T14:06:57.163Z",
+  "run": {
+    "runId": "3f5e83fa-3480-44ff-99c5-ff943904e5e9",
+    "facets": {
+      "studyIdentifiers": {
+        "_producer": "https://github.com/OpenLineage/OpenLineage/blob/v1-0-0/client",
+        "_schemaURL": "https://github.com/OpenLineage/OpenLineage/blob/v1-0-0/spec/OpenLineage.yml#MyCustomJobFacet",
+        "studyIdentifiers": {
+          "compound": "cpd7734",
+          "study": "tg0014",
+          "therapeuticArea": "oncology"
+        }
+      }
+    }
+  },
+  "job": {
+    "namespace": "okbio.migration",
+    "name": "tg0014"
+  },
+  "inputs": [],
+  "outputs": [],
+  "producer": "https://github.com/OpenLineage/OpenLineage/blob/v1-0-0/client",
+  "schemaURL": "https://openlineage.io/spec/1-0-1/OpenLineage.json#/definitions/RunEvent"
+}
