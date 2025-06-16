@@ -30,12 +30,25 @@ const mqTheme = {
   '--w-rjv-type-float-color': theme.palette.primary.main,
 }
 
-// checking to see if the value is a URL type
+/**
+ * Checks whether a given value is a `URL` object.
+ *
+ * @param {*} value - The value to check.
+ * @returns {value is URL} `true` if the value is a `URL` object, `false` otherwise.
+ */
 function isURL(value: any): value is URL {
   return typeof value === 'object' && value instanceof URL && 'href' in value;
 }
 
-// method to update data prop and convert strings that begin with http to a URL type
+/**
+ * Recursively traverses an object or array and converts all string values
+ * that start with "http" into `URL` objects. If a string fails to be parsed
+ * as a URL, it remains unchanged.
+ *
+ * @param {*} obj - The input object or array to process.
+ * @returns {*} A new object or array with applicable string values converted to `URL` instances.
+ */
+
 function convertStringsToUrls(obj: any): any {
   if (Array.isArray(obj)) {
     return obj.map(convertStringsToUrls);

@@ -21,7 +21,7 @@ import { useTheme } from '@emotion/react'
 
 import { Dashboard } from '@mui/icons-material'
 import iconSearchArrow from '../../img/iconSearchArrow.svg'
-import ksm_logo from './KSM_Logo.svg'
+import ksm_logo from '../../img/KSM_Logo.svg'
 
 interface SidenavProps {}
 
