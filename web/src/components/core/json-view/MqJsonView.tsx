@@ -30,10 +30,74 @@ const mqTheme = {
   '--w-rjv-type-float-color': theme.palette.primary.main,
 }
 
+/**
+ * Checks whether a given value is a `URL` object.
+ *
+ * @param {*} value - The value to check.
+ * @returns {value is URL} `true` if the value is a `URL` object, `false` otherwise.
+ */
+function isURL(value: any): value is URL {
+  return typeof value === 'object' && value instanceof URL && 'href' in value;
+}
+
+/**
+ * Recursively traverses an object or array and converts all string values
+ * that start with "http" into `URL` objects. If a string fails to be parsed
+ * as a URL, it remains unchanged.
+ *
+ * @param {*} obj - The input object or array to process.
+ * @returns {*} A new object or array with applicable string values converted to `URL` instances.
+ */
+
+function convertStringsToUrls(obj: any): any {
+  if (Array.isArray(obj)) {
+    return obj.map(convertStringsToUrls);
+  }
+
+  if (obj && typeof obj === 'object') {
+    const newObj: any = {};
+    for (const key in obj) {
+      const value = obj[key];
+      if (typeof value === 'string' && value.startsWith('http')) {
+        try {
+          newObj[key] = new URL(value);
+        } catch {
+          newObj[key] = value;
+        }
+      } else {
+        newObj[key] = convertStringsToUrls(value);
+      }
+    }
+    return newObj;
+  }
+
+  return obj;
+}
+
 const MqJsonView: React.FC<JsonViewProps> = ({ data }) => {
+  const processedData = convertStringsToUrls(data)
+
   return (
-    <Box my={2}>
-      <JsonView style={mqTheme} collapsed={2} value={data} />
+    // <Box my={2}>
+    //   <JsonView
+    //    style={mqTheme} collapsed={2} value={data} 
+    //    />
+    // </Box>
+ <Box my={2}>
+      <JsonView value={processedData} collapsed={2} style={mqTheme}>
+        <JsonView.Url
+          render={(props, { type, value }) => {
+            if (type === 'value' && isURL(value)) {
+              return (
+                <a href={value.href} target="_blank" rel="noopener noreferrer" {...props}>
+                  {value.href}
+                </a>
+              );
+            }
+            return undefined;
+          }}
+        />
+      </JsonView>
     </Box>
   )
 }
