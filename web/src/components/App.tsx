@@ -27,6 +27,7 @@ import Toast from './Toast'
 import createRootReducer from '../store/reducers'
 import createSagaMiddleware from 'redux-saga'
 import rootSaga from '../store/sagas'
+import KSM_favicon from "../img/KSM-favicon-white.svg"
 
 const sagaMiddleware = createSagaMiddleware({
   onError: (error, _sagaStackIgnored) => {
@@ -54,7 +55,8 @@ const App = (): ReactElement => {
             <ThemeProvider theme={theme}>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <Helmet>
-                  <title>{TITLE}</title>
+                  <title>{TITLE}</title>  
+                  <link rel="icon" href={KSM_favicon} type="image/svg+xml" sizes='any'/>
                 </Helmet>
                 <CssBaseline />
                 <Box ml={'80px'}>
