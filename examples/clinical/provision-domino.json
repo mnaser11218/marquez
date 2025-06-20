@@ -1,0 +1,91 @@
+{
+  "eventType": "COMPLETE",
+  "eventTime": "2025-06-12T14:06:59.163Z",
+  "run": {
+    "runId": "3aeeaed2-b414-4765-a924-ec924d7e6701",
+    "facets": {
+      "parent": {
+        "_producer": "https://github.com/OpenLineage/OpenLineage/blob/v1-0-0/client",
+        "_schemaURL": "https://openlineage.io/spec/facets/1-1-0/ParentRunFacet.json",
+        "run": {
+          "runId": "3f5e83fa-3480-44ff-99c5-ff943904e5e9"
+        },
+        "job": {
+          "namespace": "okbio.migration",
+          "name": "tg0014"
+        }
+      }
+    }
+  },
+  "job": {
+    "namespace": "okbio.migration",
+    "name": "provision-domino",
+    "facets": {
+      "sourceCodeLocation": {
+        "_producer": "https://github.com/OpenLineage/OpenLineage/blob/v1-0-0/client",
+        "_schemaURL": "https://github.com/OpenLineage/OpenLineage/blob/main/spec/facets/SourceCodeLocationJobFacet.json",
+        "type": "git",
+        "repoUrl": "https://github.com/okbio/sceptre",
+        "tag": "6.1.0_1.0.1",
+        "path": "src/scripts/provision-domino.py",
+        "url": "https://github.com/okbio/sceptre/blob/6.1.0_1.0.1/src/scripts/provision-domino.py"
+      }
+    }
+  },
+  "inputs": [
+    {
+      "namespace": "okbio.migration",
+      "name": "blobstore.tg0014.study"
+    },
+    {
+      "namespace": "okbio.migration",
+      "name": "github.tg0014.study"
+    }
+  ],
+  "outputs": [
+    {
+      "namespace": "okbio.migration",
+      "name": "domino.tg0014.study",
+      "outputFacets": {},
+      "facets": {
+        "dominoProject": {
+          "_producer": "https://github.com/OpenLineage/OpenLineage/blob/v1-0-0/client",
+          "_schemaURL": "https://github.com/ksmpartners/flyway/blob/v1-0-0/spec/FlywayOpenLineage.yml#DominoProjectFacet",
+          "dominoProject": {
+            "projectName": "tg0014",
+            "projectUrl": "https://domino.okbio/u/sysaccount/tg0014",
+            "projectOwner": "sysaccount",
+            "datasets": [
+              {
+                "name": "tg0014input",
+                "description": "Input data for study tg0014",
+                "id": "6675d1006ed98b7cb56cbca0",
+                "url": "https://domino.okbio/u/sysaccount/tg0014/data/rw/upload/tg0014input/6675d1006ed98b7cb56cbca0"
+              },
+              {
+                "name": "tg0014output",
+                "description": "Output data for study tg0014",
+                "id": "6675d1006ed98b7cb56cbca1",
+                "url": "https://domino.okbio/u/sysaccount/tg0014/data/rw/upload/tg0014output/6675d1006ed98b7cb56cbca1"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "namespace": "okbio.migration",
+      "name": "stdout.provision-domino.job.tg0014.study",
+      "outputFacets": {},
+      "facets": {
+        "evidence": {
+          "_producer": "https://github.com/OpenLineage/OpenLineage/blob/v1-0-0/client",
+          "_schemaURL": "https://github.com/ksmpartners/flyway/blob/v1-0-0/spec/FlywayOpenLineage.yml#EvidenceFacet",
+          "url": "https://flyway.okbio/evidence/study.tg0014.provision-domino.stdout"
+        }
+      }
+    }
+  ],
+  "producer": "https://github.com/OpenLineage/OpenLineage/blob/v1-0-0/client",
+  "schemaURL": "https://openlineage.io/spec/1-0-1/OpenLineage.json#/definitions/RunEvent"
+}
